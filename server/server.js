@@ -5,11 +5,9 @@ import Product from './model/Product.model.js'; // fix import path
 import cors from 'cors';
 import mongoose from 'mongoose';
 import productRoutes from './routes/Product.routes.js'; // fix import path
-import path from 'path';
+// import path from 'path';
 
 dotenv.config();
-console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log("MONGO_URI:", process.env.MONGO_URI);
 
 
 const app = express();
@@ -23,16 +21,17 @@ app.get('/', (req, res) => {
 
 // console.log(process.env.MONGO_URI);
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 app.use('/api/products', productRoutes);
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/client/dist")));
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
-	});
-}
+
+// if (process.env.NODE_ENV === "production") {
+// 	app.use(express.static(path.join(__dirname, "/client/dist")));
+// 	app.get("*", (req, res) => {
+// 		res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+// 	});
+// }
 
 const PORT = process.env.PORT || 5000;
 
