@@ -12,8 +12,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        // target: 'http://localhost:5000', // Backend server URL
-        target: 'https://mern-crud-psjs.onrender.com', // Backend server URL
+        target: 'http://localhost:5000', // Backend server URL
+        // target: 'https://mern-crud-psjs.onrender.com', // Backend server URL
         changeOrigin: true,
         secure: false, // <-- This disables SSL cert verification
       },
